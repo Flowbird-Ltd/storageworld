@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="txt_local.contact_send_message_button" model="ir.ui.view">
+            <field name="name">Txt Local Send Message Button</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" type="object" name="get_messages" icon="fa-inbox">
+                        <field string="SMS" name="number_of_sms" widget="statinfo"/>
+                    </button>
+                </div>
+                <xpath expr="//form/div[1]" position="before">
+                    <header>
+                        <button name="send_message" type="object" string="Send SMS" class="oe_highlight"/>
+                    </header>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="txt_local.pop_up_send_message" model="ir.ui.view">
+            <field name="name">Txt Local SMS Sender</field>
+            <field name="priority">2</field>
+            <field name="model">txt_local.messages</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="simple_reply"/>
+                            <field name="sender" attrs="{'invisible':[('simple_reply', '=', True)]}"/>
+                            <field name="message"/>
+                            <field name="contact_ids" invisible="1"/>
+                            <field name="numbers"/>
+                            <field name="inbound_outbound" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

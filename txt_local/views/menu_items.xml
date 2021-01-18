@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- menus -->
+        <menuitem id="txt_local.menu_root" name="Txt Local" action="txt_local.messages_window_action"/>
+
+        <menuitem id="txt_local.groups_menu" name="Groups" parent="txt_local.menu_root"/>
+
+        <menuitem id="txt_local.groups_groups_menu" name="Groups" action="txt_local.group_window" parent="txt_local.groups_menu"/>
+
+        <menuitem id="txt_local.groups_tags_menu" name="Groups Tags" action="txt_local.group_tags_window" parent="txt_local.groups_menu"/>
+
+        <menuitem id="txt_local.config_settings" name="Settings" action="txt_local.txt_local_config_settings_action" parent="txt_local.menu_root"/>
+    </data>
+</odoo>

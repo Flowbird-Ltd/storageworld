@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- List view -->
+        <record id="txt_local.group_tags" model="ir.ui.view">
+            <field name="name">Txt Local Group Tags</field>
+            <field name="model">txt_local.groups.tags</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="txt_local.group_tags_window" model="ir.actions.act_window">
+            <field name="name">Txt Local Group Tags</field>
+            <field name="res_model">txt_local.groups.tags</field>
+            <field name="view_mode">tree</field>
+        </record>
+    </data>
+</odoo>
