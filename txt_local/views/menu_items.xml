@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <!-- menus -->
-        <menuitem id="txt_local.menu_root" name="Txt Local" action="txt_local.messages_window_action"/>
+        <menuitem id="txt_local.menu_root" name="Txt Local" action="txt_local.messages_window_action" web_icon="txt_local,static/description/icon.png"/>
 
         <menuitem id="txt_local.groups_menu" name="Groups" parent="txt_local.menu_root"/>
 

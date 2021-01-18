@@ -3,6 +3,8 @@
 import requests
 import json
 from odoo import _
+from odoo.exceptions import Warning
+
 
 # ERROR CODES https://api.txtlocal.com/docs/sendsms
 SEND_ERROR_CODES = {
