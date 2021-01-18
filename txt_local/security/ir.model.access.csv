@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+txt_local_txt_local_messages,txt_local.txt_local_messages,txt_local.model_txt_local_messages,base.group_user,1,1,1,1
+txt_local_txt_local_groups,txt_local.txt_local_groups,txt_local.model_txt_local_groups,base.group_user,1,1,1,1
+txt_local_txt_local_groups_tags,txt_local.txt_local_groups_tags,txt_local.model_txt_local_groups_tags,base.group_user,1,1,1,1

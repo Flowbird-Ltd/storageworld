@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form_txt_local" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.txt_local</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="5"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Txt Local" string="Txt Local" data-key="txt_local" goups="base.group_user">
+                        <h2>Txt Local</h2>
+                        <div class="row mt16 o_settings_container" name="qualification_setting_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">API Key</span>
+                                    <div class="text-muted">
+                                        Add your API key supplied by Txt Local
+                                    </div>
+                                    <div class="row mt16">
+                                        <label for="txt_local_api_key" string="API Key" class="col-lg-4 o_light_label"/>
+                                        <field name="txt_local_api_key" class="oe_inline" password="True"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt16 o_settings_container" name="qualification_setting_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="txt_local_test_api"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">Test</span>
+                                    <div class="text-muted">
+                                        Activating test will not actually send SMS's
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="txt_local_config_settings_action" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_id" ref="res_config_settings_view_form_txt_local"/>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{"module": "txt_local"}</field>
+        </record>
+    </data>
+</odoo>

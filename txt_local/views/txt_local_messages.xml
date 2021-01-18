@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- List view -->
+        <record id="txt_local.messages_main_list" model="ir.ui.view">
+            <field name="name">Txt Message</field>
+            <field name="model">txt_local.messages</field>
+            <field name="arch" type="xml">
+                <tree create="false">
+                    <field name="name"/>
+                    <field name="message"/>
+                    <field name="inbound_outbound"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view -->
+        <record id="txt_local.messages_form" model="ir.ui.view">
+            <field name="name">Txt Message</field>
+            <field name="priority">1</field>
+            <field name="model">txt_local.messages</field>
+            <field name="arch" type="xml">
+                <form create="false" edit="false">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="contact_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="mobile"/>
+                                        <field name="phone"/>
+                                    </tree>
+                                </field>
+                                <field name="numbers"/>
+                                <field name="status"/>
+                            </group>
+                            <group>
+                                <field name="simple_reply"/>
+                                <field name="sender" attrs="{'invisible': [('simple_reply', '=', True)]}"/>
+                                <field name="inbound_outbound"/>
+                                <field name="read_status" attrs="{'invisible': [('inbound_outbound', '=', 'outbound')]}"/>
+                                <field name="failure_reason" attrs="{'invisible': [('status', '=', 'failed')]}"/>
+                            </group>
+                            <field name="message"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Window action -->
+        <record id="txt_local.messages_window_action" model="ir.actions.act_window">
+            <field name="name">Txt Local Messages</field>
+            <field name="res_model">txt_local.messages</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

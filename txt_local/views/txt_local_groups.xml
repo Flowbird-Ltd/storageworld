@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- List view -->
+        <record id="txt_local.groups_list" model="ir.ui.view">
+            <field name="name">Txt Local Groups</field>
+            <field name="model">txt_local.groups</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="tags" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view -->
+        <record id="txt_local.group_form" model="ir.ui.view">
+            <field name="name">Txt Local Groups</field>
+            <field name="model">txt_local.groups</field>
+            <field name="arch" type="xml">
+                <form>
+                    <div>
+                        <header>
+                            <button name="send_message" type="object" string="Send New Message" class="oe_highlight"/>
+                        </header>
+                    </div>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="tags" widget="many2many_tags"/>
+                            </group>
+                            <field name="contact_ids">
+                                <tree editable="bottom" decoration-danger="mobile == False and phone == False">
+                                    <field name="name"/>
+                                    <field name="mobile"/>
+                                    <field name="phone"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="txt_local.group_window" model="ir.actions.act_window">
+            <field name="name">Txt Local Groups</field>
+            <field name="res_model">txt_local.groups</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+</odoo>
