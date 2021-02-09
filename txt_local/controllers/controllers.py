@@ -29,7 +29,7 @@ class TxtLocalInbound(http.Controller):
             request.env["txt_local.messages"].sudo().create(
                 [
                     {
-                        "contact": contact.id,
+                        "contact_ids": [(4, contact.id, 0)],
                         "sender": data["sender"],
                         "message": data["content"],
                         "inbound_outbound": "inbound",

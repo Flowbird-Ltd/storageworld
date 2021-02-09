@@ -46,3 +46,17 @@ class Contact(models.Model):
             }
         else:
             raise Warning(_("The Contact needs a mobile or phone number"))
+
+    # remove blank spaces from phone to enable search
+    @api.onchange("phone")
+    def remove_spaces_from_phone(self):
+        for record in self:
+            if record.phone:
+                record.phone = record.phone.replace(" ", "")
+
+    # remove black spaces from mobile to enable search
+    @api.onchange("mobile")
+    def remove_spaces_from_mobile(self):
+        for record in self:
+            if record.mobile:
+                record.mobile = record.mobile.replace(" ", "")
