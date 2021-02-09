@@ -38,8 +38,8 @@
                                 <field name="status"/>
                             </group>
                             <group>
-                                <field name="simple_reply"/>
-                                <field name="sender" attrs="{'invisible': [('simple_reply', '=', True)]}"/>
+                                <field name="default_sender"/>
+                                <field name="sender" attrs="{'invisible': [('default_sender', '=', True)]}"/>
                                 <field name="inbound_outbound"/>
                                 <field name="read_status" attrs="{'invisible': [('inbound_outbound', '=', 'outbound')]}"/>
                                 <field name="failure_reason" attrs="{'invisible': [('status', '=', 'failed')]}"/>

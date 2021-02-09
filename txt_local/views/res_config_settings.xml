@@ -38,6 +38,21 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row mt16 o_settings_container" name="qualification_setting_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">Default Number</span>
+                                    <div class="text-muted">
+                                        The default number your SMS messages will be sent from
+                                    </div>
+                                    <div class="row mt16">
+                                        <label for="txt_local_default_number" string="Default Number" class="col-lg-4 o_light_label"/>
+                                        <field name="txt_local_default_number" class="oe_inline"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </xpath>
             </field>

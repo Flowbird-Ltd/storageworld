@@ -14,7 +14,7 @@ class TxtLocalMessages(models.Model):
 
     name = fields.Char("Name")
     sender = fields.Char("Sender")
-    simple_reply = fields.Boolean("Simple Reply", default=True, help="Enable Replies")
+    default_sender = fields.Boolean("Default Sender", default=True, help="Enable Replies")
     message = fields.Char("Message")
     contact_ids = fields.Many2many("res.partner", string="Related Contacts")
     numbers = fields.Char("Number", compute="_compute_mobile_number", required=True)
@@ -55,10 +55,16 @@ class TxtLocalMessages(models.Model):
                 "numbers": record.numbers
             }
 
-            if not record.simple_reply:
+            if not record.default_sender:
                 data["sender"] = record.sender
             else:
-                data["simple_reply"] = "true"
+                # get the default number from the settings and set as sender
+                default_number = self.env["ir.config_parameter"].sudo().get_param("txt_local.txt_local_default_number")
+
+                if default_number:
+                    data["sender"] = default_number
+                else:
+                    raise Warning(_("No default number has been set"))
 
             txt_local_instance.send_txt_message(self, data)
             return True

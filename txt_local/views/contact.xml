@@ -27,8 +27,8 @@
                 <form>
                     <sheet>
                         <group>
-                            <field name="simple_reply"/>
-                            <field name="sender" attrs="{'invisible':[('simple_reply', '=', True)]}"/>
+                            <field name="default_sender"/>
+                            <field name="sender" attrs="{'invisible':[('default_sender', '=', True)]}"/>
                             <field name="message"/>
                             <field name="contact_ids" invisible="1"/>
                             <field name="numbers"/>
