@@ -15,11 +15,13 @@ class Contact(models.Model):
             record.number_of_sms = self.env["txt_local.messages"].search_count([("contact_ids", "in", record.id)])
 
     def get_messages(self):
+        # return window action for the same SMS
         self.ensure_one()
 
         tree_view = self.env.ref("txt_local.messages_main_list").id
         form_view = self.env.ref("txt_local.messages_form").id
         # return a window action which will display all SMS's relating to contact
+
         return {
             "type": "ir.actions.act_window",
             "name": "SMS",

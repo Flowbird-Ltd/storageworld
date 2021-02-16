@@ -35,6 +35,10 @@
                             <field name="inbound_outbound" invisible="1"/>
                         </group>
                     </sheet>
+                    <footer>
+                        <button name="send_sms" type="object" string="Send" class="oe_highlight"/>
+                        <button data-dismiss="modal" string="Cancel"/>
+                    </footer>
                 </form>
             </field>
         </record>

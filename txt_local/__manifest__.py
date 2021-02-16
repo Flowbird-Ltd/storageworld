@@ -11,7 +11,7 @@
     'website': "https://www.flowbird.co.uk",
     'category': 'Uncategorized',
     'version': '0.1',
-    'depends': ['base', 'contacts'],
+    'depends': ['base', 'contacts', 'crm'],
     'data': [
         'security/ir.model.access.csv',
         'views/txt_local_messages.xml',
@@ -20,6 +20,7 @@
         'views/contact.xml',
         'views/res_config_settings.xml',
         'views/menu_items.xml',
+        'views/crm.xml',
         'data/txt_local_message_sequence.xml',
     ],
     "application": True

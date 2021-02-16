@@ -30,6 +30,10 @@ class TxtLocalMessages(models.Model):
     failure_reason = fields.Char("Failure Reason")  # only visible when error occurred
     read_status = fields.Boolean("Read Status")
 
+    # save the SMS which will send the SMS
+    def send_sms(self):
+        return {'type': 'ir.actions.act_window_close'}
+
     # add note to the chatter on the contact level
     def add_note_to_chatter_contact(self, result):
         for contact in result.contact_ids:
@@ -87,7 +91,7 @@ class TxtLocalMessages(models.Model):
         result = super(TxtLocalMessages, self).create(vals)
 
         # add the sequence to the name of the record
-        sequence_number = self.env["ir.sequence"].get("txt_local.messages")
+        sequence_number = self.env["ir.sequence"].next_by_code("txt_local.messages")
         result.name = sequence_number
 
         # send message, if outbound, when saved and add sent result
